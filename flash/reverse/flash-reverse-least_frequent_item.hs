@@ -28,10 +28,9 @@ main :: IO ()
 main = do
     _ <- getLine
     input_line <- getLine
-    let xs = map read $ words input_line :: [Int]
-    print $ leastFrequent xs
+    putStrLn $ leastFrequent $ words input_line
 
-leastFrequent :: [Int] -> Int
+leastFrequent :: Ord a => [a] -> a
 leastFrequent = snd . minimum . frequency
 
 frequency :: Ord a => [a] -> [(Int, a)]
