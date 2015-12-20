@@ -42,7 +42,7 @@ answer [[x]] = x
 answer xs = sum top + sum bot + sum left + sum right
   where
     top = head xs
-    bot = xs !! (length xs - 1)
+    bot = last xs
     left = map head chop
     right = map last chop
     chop = init $ tail xs
