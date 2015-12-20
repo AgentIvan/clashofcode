@@ -32,7 +32,7 @@ main = do
     print $ leastFrequent xs
 
 leastFrequent :: [Int] -> Int
-leastFrequent = snd . head . sort . frequency
+leastFrequent = snd . minimum . frequency
 
 frequency :: Ord a => [a] -> [(Int, a)]
 frequency = map (length &&& head) . group . sort
