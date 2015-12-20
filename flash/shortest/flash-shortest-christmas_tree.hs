@@ -28,15 +28,7 @@ Output
 .*******.
 ....*....
 -}
-main = do
-    n <- readLn :: IO Int
-    putStr $ unlines $ tree n
-
-tree :: Int -> [String]
-tree n = map (branch width) [1..n] ++ [branch width 1] where width = [1,3..] !! n
-
-branch :: Int -> Int -> String
-branch width k = s ++ replicate t '*' ++ s
- where
-  s = replicate ((width - t) `div` 2) '.'
-  t = [1,3..] !! (k- 1)
+main=do;n<-readLn::IO Int;putStr$unlines$c n
+c n=map(b w)[1..n]++[b w 1]where w=o!!n
+b w k=s++replicate t '*'++s where s=replicate ((w-t)`div`2)'.';t=o!!(k- 1)
+o=[1,3..]
