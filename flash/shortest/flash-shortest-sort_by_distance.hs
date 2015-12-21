@@ -22,5 +22,5 @@ person 0.5
 -}
 import Data.List
 main=interact a
-a x=unwords$map snd$reverse$sort$map (t.words)$drop 1$lines x
+a=unwords.map snd.reverse.sort.map(t.words).drop 1.lines
 t[c,d]=(read d,c)::(Float,String)
