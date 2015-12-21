@@ -29,23 +29,22 @@ Output
 H3110 W0r1d
 -}
 import Data.Char
+import Data.Maybe
 
 main :: IO ()
 main = interact leetSpeek
 
 leetSpeek = map leetChar
 
-leetChar x
-    | y == 'O' = '0'
-    | y == 'L' = '1'
-    | y == 'Z' = '2'
-    | y == 'E' = '3'
-    | y == 'A' = '4'
-    | y == 'S' = '5'
-    | y == 'G' = '6'
-    | y == 'T' = '7'
-    | y == 'B' = '8'
-    | y == 'Q' = '9'
-    | otherwise = x
-  where
-    y = toUpper x
+leetChar x = fromMaybe x $ lookup (toUpper x) table
+
+table = [('O', '0')
+        ,('L', '1')
+        ,('Z', '2')
+        ,('E', '3')
+        ,('A', '4')
+        ,('S', '5')
+        ,('G', '6')
+        ,('T', '7')
+        ,('B', '8')
+        ,('Q', '9')]
