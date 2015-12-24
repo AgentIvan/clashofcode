@@ -23,7 +23,6 @@ Input
 8
 -1
 -}
-import System.IO
 import Control.Monad
 
 main :: IO ()
