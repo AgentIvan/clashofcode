@@ -23,6 +23,6 @@ main = do
     s <- getLine
     putStrLn $ unwords $ answer s
 
-answer xs = [c 'A', c 'C', c 'G', c 'T']
+answer xs = map c "ACGT"
   where
     c x = show $ length $ filter (== x) xs
