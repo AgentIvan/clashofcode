@@ -21,8 +21,8 @@ Output
 main :: IO ()
 main = do
     s <- getLine
-    putStrLn $ unwords $ answer s
+    putStrLn $ unwords $ map show $ answer s
 
 answer xs = map c "ACGT"
   where
-    c x = show $ length $ filter (== x) xs
+    c x = length $ filter (== x) xs
