@@ -27,8 +27,7 @@ import Control.Monad
 
 main :: IO ()
 main = do
-    input_line <- getLine
-    let [a, b] = map read $ words input_line :: [Int]
+    [a, b] <- fmap (map read . words) getLine :: IO [Int]
     n <- readLn :: IO Int
     
     replicateM_ n $ do
