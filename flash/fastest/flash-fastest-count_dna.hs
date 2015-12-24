@@ -18,24 +18,10 @@ AACT
 Output
 2 1 0 1
 -}
-import System.IO
-import Control.Monad
-
 main :: IO ()
 main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let s = input_line :: String
-    
-    -- hPutStrLn stderr "Debug messages..."
-    
-    -- Write answer to stdout
+    s <- getLine
     putStrLn $ unwords $ answer s
-    return ()
 
 answer xs = [c 'A', c 'C', c 'G', c 'T']
   where
