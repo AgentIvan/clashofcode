@@ -17,6 +17,5 @@ Output
 BADCFE
 -}
 main=interact a
-a[]=[]
-a[x]=[x]
-a(x:y:xs)=y:x:a xs
+a(x:y:z)=y:x:a z
+a z=z
