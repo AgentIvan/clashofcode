@@ -20,12 +20,5 @@ Input
 Output
 1 2 4 8 16
 -}
-import System.IO
-import Control.Monad
-
-main :: IO ()
-main = do
-    [n, r] <- fmap (map read . words) getLine :: IO [Int]
-    putStrLn $ unwords $ map show $ geometricSequence n r
-
-geometricSequence n r = take n $ map (r^) [0..]
+main=do;[n,r]<-fmap(map read.words)getLine::IO[Int];putStrLn$unwords$map show$g n r
+g n r=take n$map(r^)[0..]
