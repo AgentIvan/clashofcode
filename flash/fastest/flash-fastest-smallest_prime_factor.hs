@@ -20,26 +20,15 @@ Input
 Output
 3
 -}
-import System.IO
-import Control.Monad
-
 main :: IO ()
 main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let n = read input_line :: Int
-    
-    -- hPutStrLn stderr "Debug messages..."
-    
-    -- Write answer to stdout
+    n <- readLn :: IO Integer
     putStrLn $ answer n
 
+answer :: Integer -> String
 answer 0 = "NONE"
 answer 1 = "NONE"
 answer n = show $ head $ filter ((== 0) . (n `mod`)) primes
 
+primes :: [Integer]
 primes = 2 : sieve [3,5..] where sieve (p:xs) = p : [x | x <- xs, x `mod` p > 0]
