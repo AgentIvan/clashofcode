@@ -22,23 +22,11 @@ Input
 Output
 true
 -}
-import System.IO
-import Control.Monad
 import Data.Char
 
 main :: IO ()
 main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let year = read input_line :: Int
-    
-    -- hPutStrLn stderr "Debug messages..."
-    
-    -- Write answer to stdout
+    year <- readLn :: IO Int
     putStrLn $ map toLower $ show $ isLeapYear year
 
 isLeapYear :: Int -> Bool
