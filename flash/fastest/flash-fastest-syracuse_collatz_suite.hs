@@ -20,22 +20,9 @@ Input
 Output
 5 16 8 4 2 1
 -}
-import System.IO
-import Control.Monad
-
 main :: IO ()
 main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let n = read input_line :: Int
-    
-    -- hPutStrLn stderr "Debug messages..."
-    
-    -- Write answer to stdout
+    n <- readLn :: IO Int
     putStrLn $ unwords $ map show $ collatz n
 
 collatz 1 = [1]

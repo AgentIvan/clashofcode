@@ -77,23 +77,14 @@ true
 true
 true
 -}
-import System.IO
 import Control.Monad
 import Data.Char
 
 main :: IO ()
 main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let n = read input_line :: Int
-    
+    n = readLn :: IO Int
     replicateM_ n $ do
-        input_line <- getLine
-        let x = read input_line :: Int
+        x = readLn :: IO Int
         putStrLn $ map toLower $ show $ answer x
 
 answer = even
