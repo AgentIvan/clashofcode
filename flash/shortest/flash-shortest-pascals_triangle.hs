@@ -31,7 +31,7 @@ Output
 1 4 6 4 1
 -}
 -- Modified from the `fastest` variant.
-main=do;n<-readLn::IO Int;putStrLn$unwords$map show$r n
-r n=take(n+1)$map(round.c(fromIntegral n))[0..]
+main=interact r
+r s=unwords$map show$take(n+1)$map(round.c(fromIntegral n))[0..]where n=read s
 c _ 0=1
 c n k=c n(k-1)*((n+1-k)/k)
