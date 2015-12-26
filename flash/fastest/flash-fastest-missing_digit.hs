@@ -32,5 +32,5 @@ answer = unlines . map (show . missingDigit . readInts) . drop 1 . lines
 
 missingDigit :: [Int] -> Int
 missingDigit xs
-    | 9 `elem` xs = fst . head . filter (\(a, b) -> a /= b) $ zip [0..9] (sort xs)
+    | 9 `elem` xs = fst . head . filter (uncurry (/=)) $ zip [0..9] (sort xs)
     | otherwise = 9
