@@ -33,7 +33,7 @@ main = do
     putStrLn $ answer a b
 
 answer :: String -> String -> String
-answer a b = zipWith (curry myXor) a b
+answer = zipWith (curry myXor)
 
 myXor :: (Char, Char) -> Char
 myXor ('0', '0') = '0'
