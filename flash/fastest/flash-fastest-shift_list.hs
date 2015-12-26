@@ -23,5 +23,5 @@ main = do
     word <- getLine
     putStrLn $ shift n word
 
-shift :: Int -> String -> String
+shift :: Int -> [a] -> [a]
 shift n xs = take (length xs) $ drop n $ cycle xs
