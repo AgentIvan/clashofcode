@@ -18,30 +18,17 @@ Input
 Output
 0
 -}
-import System.IO
-import Control.Monad
 import Data.List (sort)
 import Data.Char (digitToInt)
 
 main :: IO ()
-main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let n = read input_line :: Int
-    
-    replicateM_ n $ do
-        input_line <- getLine
-        print $ answer input_line
+main = interact answer
 
-answer :: String -> Int
-answer input_line = missingDigit xs
+answer :: String -> String
+answer = unlines . map (show . missingDigit . readInts) . drop 1 . lines
   where
-    xs :: [Int]
-    xs = map digitToInt input_line
+    readInts :: String -> [Int]
+    readInts = map digitToInt
 
 missingDigit :: [Int] -> Int
 missingDigit xs
