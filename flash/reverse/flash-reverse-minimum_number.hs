@@ -17,23 +17,8 @@ The game mode is REVERSE: You do not have access to the statement. You have to g
 0
 0
 -}
-import System.IO
-import Control.Monad
-
 main :: IO ()
 main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let n = read input_line :: Int
-    input_line <- getLine
-    let m = read input_line :: Int
-    
-    -- hPutStrLn stderr "Debug messages..."
-    
-    -- Write answer to stdout
-    print $ min n m
-    return ()
+    input_lines <- getContents
+    let xs = map read $ lines input_lines :: [Integer]
+    print $ minimum xs
