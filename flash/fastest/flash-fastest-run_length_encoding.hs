@@ -23,4 +23,4 @@ import Data.List
 
 main = interact answer
 
-answer xs = concat . concat $ map ((\ (a, b) -> [show a, [b]]) . (length &&& head)) (group xs)
+answer = concat . concat . map ((\ (a, b) -> [show a, [b]]) . (length &&& head)) . group
