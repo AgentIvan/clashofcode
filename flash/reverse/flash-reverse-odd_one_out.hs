@@ -28,9 +28,10 @@ main = do
     print $ oddOneOut xs
 
 oddOneOut :: [Int] -> Int
-oddOneOut xs
-    | numEven > numOdd = head $ filter odd xs
-    | otherwise = head $ filter even xs
+oddOneOut xs = head $ filter filterFunc xs
   where
+    filterFunc
+        | numEven > numOdd = odd
+        | otherwise = even
     numEven = length $ filter even xs
     numOdd = length xs - numEven
