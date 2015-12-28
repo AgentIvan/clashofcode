@@ -20,5 +20,5 @@ Lots and lots of words!! Hey Hi Hello oejr32 29ej^[OQ2 dajw9(*JijI Inidw9d H(J@*
 1 1 1 1 1 1 1 2 2 2 3 2 0 3 0 0 2 3 3
 -}
 import Data.Char
-main = interact (unwords . map (show . countVowels) . words . (map toLower))
+main = interact (unwords . map (show . countVowels) . words . map toLower)
 countVowels = length . filter (`elem` "aeiou")
