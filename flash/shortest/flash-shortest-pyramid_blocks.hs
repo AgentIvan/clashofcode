@@ -19,5 +19,4 @@ Output
 4 0
 -}
 main=do;n<-readLn::IO Int;putStr$a n
-a n=unwords$map show$(\(s,h)->[h,n-s])$last$takeWhile((<=n).fst)$zip(map p[1..])[1..]
-p n=sum[1..n]
+a n=unwords$map show$(\(s,h)->[h,n-s])$last$takeWhile((<=n).fst)$zip(scanl(+)0[1..])[0..]
