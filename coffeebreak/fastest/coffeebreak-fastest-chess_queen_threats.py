@@ -30,6 +30,9 @@ P.P.P.PP
 .PP.PP.P
 PPP.PPP.
 """
+import itertools
+
+
 def main():
     board = [list(input()) for _ in range(8)]
     print('\n'.join(''.join(row) for row in answer(board)))
@@ -56,29 +59,12 @@ def generate_threats(row_idx, column_idx):
         yield (row_idx, idx)
         yield (idx, column_idx)
 
-    delta_row, delta_col = row_idx, column_idx
-    while 0 <= delta_row < 8 and 0 <= delta_col < 8:
-        yield (delta_row, delta_col)
-        delta_row -= 1
-        delta_col -= 1
-
-    delta_row, delta_col = row_idx, column_idx
-    while 0 <= delta_row < 8 and 0 <= delta_col < 8:
-        yield (delta_row, delta_col)
-        delta_row += 1
-        delta_col -= 1
-
-    delta_row, delta_col = row_idx, column_idx
-    while 0 <= delta_row < 8 and 0 <= delta_col < 8:
-        yield (delta_row, delta_col)
-        delta_row -= 1
-        delta_col += 1
-
-    delta_row, delta_col = row_idx, column_idx
-    while 0 <= delta_row < 8 and 0 <= delta_col < 8:
-        yield (delta_row, delta_col)
-        delta_row += 1
-        delta_col += 1
+    for delta_row, delta_col in itertools.product([-1, 1], [-1, 1]):
+        new_row, new_col = row_idx, column_idx
+        while 0 <= new_row < 8 and 0 <= new_col < 8:
+            yield (new_row, new_col)
+            new_row += delta_row
+            new_col += delta_col
 
 
 if __name__ == '__main__':
