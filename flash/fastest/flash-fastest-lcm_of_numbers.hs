@@ -24,10 +24,8 @@ Output
 main :: IO ()
 main = do
     _ <- getLine
-    numberLine <- getLine
-    let xs = map read $ words numberLine :: [Int]
-    print $ lcmList xs
+    xs <- fmap (map read . words) getLine :: IO [Int]
+    print $ lcmMulti xs
 
-lcmList :: [Int] -> Int
-lcmList [x] = x
-lcmList xs = lcmList $ zipWith lcm xs (tail xs)
+lcmMulti :: [Int] -> Int
+lcmMulti = foldr1 lcm
