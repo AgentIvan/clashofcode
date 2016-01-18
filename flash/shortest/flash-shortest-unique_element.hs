@@ -22,4 +22,4 @@ Output
 1
 -}
 import Data.List
-main=interact$snd.minimum.map(\x->(length x,x)).group.sort.concat.tail.words
+main=interact$head.filter((>1).length).group.sort.concat.tail.words
