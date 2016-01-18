@@ -1,1 +1,1 @@
-main=interact$show.product.enumFromTo 1.read
+main=interact$show.(\x->product[1..x]).read
