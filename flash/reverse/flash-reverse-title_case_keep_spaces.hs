@@ -19,6 +19,7 @@ Have Fun And Keep Coding
 import Data.Char
 import Data.List.Split
 
-main = interact $ concatMap firstUpper . split (keepDelimsR $ oneOf " ")
+main = interact $ unwords . map titleCase . splitOn " "
 
-firstUpper (x:xs) = toUpper x : map toLower xs
+titleCase (x:xs) = toUpper x : map toLower xs
+titleCase _ = []
