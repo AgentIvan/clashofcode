@@ -23,7 +23,4 @@ The game mode is REVERSE: You do not have access to the statement. You have to g
 -}
 import Data.List
 
-main = do
-    _ <- getLine
-    xs <- fmap (map read . words) getLine :: IO [Int]
-    putStrLn $ unwords $ map show $ sort xs
+main = interact $ unwords . map show . sort . map (read :: String -> Int) . tail . words
