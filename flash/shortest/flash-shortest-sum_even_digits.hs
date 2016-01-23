@@ -18,5 +18,4 @@ Input
 Output
 26
 -}
-import Data.Char
-main=interact$show.sum.filter even.map digitToInt
+main=interact$show.sum.filter even.map(read.(:""))
