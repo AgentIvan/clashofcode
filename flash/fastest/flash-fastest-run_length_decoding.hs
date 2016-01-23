@@ -20,12 +20,11 @@ abbcccdddd
 -}
 import Data.Char
 
-main :: IO ()
-main = interact (concat . rleDecode)
+main = interact runLengthDecode
 
-rleDecode [] = []
-rleDecode xs = parsed ++ rleDecode (drop (length countString + length substring) xs)
+runLengthDecode [] = ""
+runLengthDecode xs = concat (replicate (read amount) sub) ++ runLengthDecode rest
   where
-    countString = takeWhile isDigit xs
-    substring = takeWhile (not.isDigit) $ dropWhile isDigit xs
-    parsed = replicate (read countString) substring
+    amount = takeWhile isNumber xs
+    sub = takeWhile (not . isNumber) $ dropWhile isNumber xs
+    rest = drop (length amount + length sub) xs
