@@ -15,7 +15,6 @@ Input
 Output
 110
 -}
-main=interact a
-a=map b
-b '0'='1'
-b '1'='0'
+main=interact$map a
+a '1'='0'
+a _='1'
