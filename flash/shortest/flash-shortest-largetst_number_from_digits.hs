@@ -19,5 +19,6 @@ Output
 987654321
 -}
 import Data.List
-main=interact$t.concat.reverse.sort.tail.words
-t x|all(=='0') x="0"|True=x
+main=interact$z.concat.reverse.sort.tail.words
+z('0':x)="0"
+z x=x
