@@ -26,6 +26,6 @@ Input
 Output
 011
 -}
-main=interact$map o.(\[a,b]->zip a b).words
-o('0','0')='0'
-o _='1'
+main=interact$(\[a,b]->zipWith o a b).words
+o '0''0'='0'
+o _ _='1'
