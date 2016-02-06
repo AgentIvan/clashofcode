@@ -23,13 +23,5 @@ Output
 true
 -}
 import Data.Char
-
-main :: IO ()
-main = interact $ map toLower . show . isLeapYear . read
-
-isLeapYear :: Int -> Bool
-isLeapYear x
-    | x `rem` 4 > 0 = False
-    | x `rem` 100 > 0 = True
-    | x `rem` 400 == 0 = True
-    | otherwise = False
+main = interact$map toLower.show.a.read
+a x|x`rem`4>0=False|x`rem`100>0=True|x`rem`400==0=True|True=False
