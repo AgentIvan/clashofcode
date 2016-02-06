@@ -22,7 +22,5 @@ Input
 Output
 3
 -}
-main=interact a
-a=show.maximum.filter p.map read.drop 1.lines
-p x=not.null$filter(==x)$takeWhile(<=x)$s[2..]
-s(x:y)=x:s(filter((>0).(`mod`x))y)
+main=interact$show.maximum.filter t.map read.tail.lines
+t x=elem x$takeWhile(<=x)$s[2..]where s(p:r)=p:s[x|x<-r,x`rem`p>0]
