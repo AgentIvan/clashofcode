@@ -22,7 +22,12 @@ Input
 3
 2
 3
+Output
+1
+3
+2
 -}
 import Data.List
-main=interact a
-a=unlines.nub.drop 1.lines
+
+main :: IO ()
+main = interact $ unlines . nub . tail . lines
