@@ -31,10 +31,7 @@
 21
 -}
 main :: IO ()
-main = interact $ show . a . read
+main = readLn >>= print . triangleNum
 
-a :: (Integral b, RealFrac a) => a -> b
-a x = floor (x * (b x))
-
-b :: Fractional a => a -> a
-b x = 1 + (0.5 * (x - 1))
+triangleNum :: Int -> Int
+triangleNum x = x * (x + 1) `div` 2
