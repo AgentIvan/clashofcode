@@ -31,7 +31,7 @@ Output
 methane
 -}
 main=interact$a
-a d=n c h where c=length$filter(=='C')d;h=length$filter(=='H')d
+a d=n(f 'C')(f 'H')where f x=length$filter(==x)d
 n 1 4="methane"
 n 2 6="ethane"
 n 3 8="propane"
