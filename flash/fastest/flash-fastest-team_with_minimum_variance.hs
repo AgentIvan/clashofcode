@@ -24,33 +24,19 @@ CONSTRAINTS:
 0 < W < 1000
 There is always a single most evenly spread team.
 -}
-import System.IO
-import Control.Monad
+import Data.List
 
 main :: IO ()
 main = do
-    hSetBuffering stdout NoBuffering -- DO NOT REMOVE
-    
-    -- Auto-generated code below aims at helping you parse
-    -- the standard input according to the problem statement.
-    
-    input_line <- getLine
-    let n = read input_line :: Int
-    input_line <- getLine
-    let m = read input_line :: Int
-    
-    teams <- replicateM n $ do
-        fmap (map read . words) getLine
-    
-    -- hPutStrLn stderr "Debug messages..."
-    
-    -- Write answer to stdout
-    let variances = map toVariance teams
-    let index = snd $ minimum $ zip variances [1..]
-    print index
+    _ <- getLine
+    _ <- getLine
+    teams <- fmap (map (map read . words) . lines) getContents :: IO [[Int]]
+    print $ indexOfLeastVariance teams
 
-toVariance :: [Integer] -> Integer
-toVariance team = sum $ map (^2) deviations
-  where
-    deviations = map (abs . (subtract mean)) team
-    mean = sum team `div` toInteger (length team)
+indexOfLeastVariance :: [[Int]] -> Int
+indexOfLeastVariance teams = snd $ minimum $ zipWith varIndex teams [1..]
+    where
+    varIndex workers index = (variance, index)
+        where
+        variance = sum $ map ((^2) . subtract mean) workers
+        mean = sum workers `div` length workers
