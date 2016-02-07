@@ -28,6 +28,4 @@ Output
 2
 -}
 import Data.List
-
-main :: IO ()
-main = interact $ unlines . nub . tail . lines
+main=interact$unlines.nub.tail.lines
