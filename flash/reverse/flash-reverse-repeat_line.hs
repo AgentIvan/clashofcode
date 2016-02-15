@@ -123,7 +123,4 @@ blah
 \n
 -}
 main :: IO ()
-main = do
-    x <- readLn
-    s <- getLine
-    putStr $ unlines $ replicate x s
+main = readLn >>= \x -> putStr . unlines . replicate x =<< getLine
