@@ -20,4 +20,4 @@ Output
 Hello World
 -}
 import Data.Char
-main=interact$map(chr.read).drop 1.words
+main=interact$map(chr.read).tail.words
