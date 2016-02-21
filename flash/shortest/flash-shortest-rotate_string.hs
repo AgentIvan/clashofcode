@@ -31,5 +31,4 @@ odingameC
 Codingame
 -}
 import Data.List
-main=interact r
-r x=unlines$x:(nub$reverse$zipWith(++)(tails x)(inits x))
+main=interact$(\x->unlines.(++[x]).nub.reverse$zipWith(++)(tails x)(inits x))
