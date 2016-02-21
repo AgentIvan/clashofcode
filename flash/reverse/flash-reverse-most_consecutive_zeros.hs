@@ -24,4 +24,7 @@ The game mode is REVERSE: You do not have access to the statement. You have to g
 -}
 import Data.List
 
-main = interact $ show . maximum . map length . group
+main = interact $ show . f . map length . filter ((== '0') . head) . group
+
+f [] = 0
+f xs = maximum xs
