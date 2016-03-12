@@ -39,17 +39,18 @@ def main():
 
 
 def find_exits(maze, w, h, x, y):
-    exits = []
+    exits = set()
     stack = [[(x, y)]]
     while stack:
         parent = stack.pop()
         for move in legal_moves(maze, w, h, parent):
             if is_exit(maze, w, h, move):
-                exits.append(move)
+                exits.add(move)
                 continue
             child = list(parent) + [move]
             stack.append(child)
-    return sorted(exits)
+    # XXX: Need to swap the `(x, y)` order to pass tests.
+    return sorted({(y, x) for (x, y) in exits})
 
 
 def legal_moves(maze, w, h, path):
