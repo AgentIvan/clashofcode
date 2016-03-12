@@ -49,8 +49,7 @@ def find_exits(maze, w, h, x, y):
                 continue
             child = list(parent) + [move]
             stack.append(child)
-    # XXX: Need to swap the `(x, y)` order to pass tests.
-    return sorted({(y, x) for (x, y) in exits})
+    return sorted(exits)
 
 
 def legal_moves(maze, w, h, path):
@@ -65,7 +64,7 @@ def legal_moves(maze, w, h, path):
         # if x > h or y > h:
         #     continue
         try:
-            if maze[x][y] == '#':
+            if maze[y][x] == '#':
                 continue
         except:
             continue
