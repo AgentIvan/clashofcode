@@ -13,6 +13,5 @@ Input
 Output
 785
 -}
-import Data.List.Split
-main=interact a
-a s=show$h*60+m where[h,m]=map read$splitOn":"s
+main=interact$show.d
+d[a,b,':',d,e]=(read[a,b])*60+(read[d,e])
