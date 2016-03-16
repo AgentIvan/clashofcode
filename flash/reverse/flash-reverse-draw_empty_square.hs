@@ -26,15 +26,10 @@ The game mode is REVERSE: You do not have access to the statement. You have to g
 1
 #
 -}
-import Control.Monad
-
 main :: IO ()
 main = do
-    n <- readLn :: IO Int
-    forM_ [1..n] $ \x -> do
-        forM_ [1..n] $ \y -> do
-            putChar $ c n x y
-        putChar '\n'
+    n <- readLn
+    putStr $ unlines $ map (\x -> map (\y -> c n x y) [1..n]) [1..n]
 
 c n x y
     | x `elem` [1, n] = '#'
