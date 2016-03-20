@@ -17,18 +17,23 @@ Output
 1
 -}
 
--- NOTE: Work in progress! `numRows` and `numCols` still need work.
+-- NOTE: Work in progress!
+
+import Control.Monad
 
 main :: IO ()
 main = do
-    _ <- getLine
-    xss <- fmap lines getContents
+    numLines <- readLn
+    xss <- replicateM numLines getLine
     let rows = length xss
         cols = length (head xss)
-    print $ numRows rows * numCols cols
+        area = numRows rows * numCols cols
+        -- TODO: Count squares made up up squares, probably by
+        -- recursively dividing by four.
+    print $ area
 
-numRows rows = rows - 2 + 1
-numCols cols = (cols - 3) + 1
+numRows rows = rows - 1
+numCols cols = (cols - 1) `div` 2
 
 -- squares 2 3 = 1
 -- swuares 3 5 = 5
